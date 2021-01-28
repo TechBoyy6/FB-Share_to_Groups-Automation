@@ -18,11 +18,18 @@ Also Download the Chrome Drivers from the link according to your chrome version 
 
 Note-> Firefox Driver is already provided
 
-## Owner
+## How to Use
+
+For Video Tutorial [Click Here](https://drive.google.com/file/d/1RX5r2H8eGlxEzU2F_NycTKzJJ4kz-3dn/view?usp=sharing)
+
+NOTE --> This program works perfectly fine in the backgroung on Linux, but windows doesn't allow to do so.
+
+
+## Social
 
 <a href="https://github.com/TechBoyy6">
-  <img align="left" alt="Moiz's Github" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
+  <img align="left" alt="Moiz's Github" width="27px" src="https://seeklogo.com/images/G/github-logo-9BBCA663A4-seeklogo.com.png"/>
 </a>
 <a href="https://twitter.com/MoiZ__2001?s=08">
-  <img align="left" alt="Moiz's Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />
+  <img align="left" alt="Moiz's Twitter" width="22px" src="https://seeklogo.com/images/T/twitter-2012-positive-logo-916EDF1309-seeklogo.com.png"/>
 </a>
