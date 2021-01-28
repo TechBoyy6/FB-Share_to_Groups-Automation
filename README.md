@@ -20,7 +20,7 @@ Note-> Firefox Driver is already provided
 
 ## How to Use
 
-For Video Tutorial [Click Here](https://drive.google.com/file/d/1RX5r2H8eGlxEzU2F_NycTKzJJ4kz-3dn/view?usp=sharing)
+For Video Tutorial [Click Here](https://drive.google.com/file/d/1RX5r2H8eGlxEzU2F_NycTKzJJ4kz-3dn/view?usp=sharing), View in full screen for better quality.
 
 NOTE --> This program works perfectly fine in the backgroung on Linux, but windows doesn't allow to do so.
 
