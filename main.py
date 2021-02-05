@@ -18,8 +18,7 @@ xpaths_pic = {
     "share_btn": "//div[@class='ozuftl9m tvfksri0 olo4ujb6 jmbispl3']/div/div[3]/div",
     "groups": "//div[@class='pybr56ya f10w8fjw']/div[5]",
     "search": "//input[@aria-label='Search for groups']",
-    "share": "//div[@aria-label='Share']",
-    "Cross_btn": "//div[@aria-label='Share to a group']/div[2]/div"
+    "share": "//div[@aria-label='Post']"
 }
 
 xpaths_vid = {
@@ -28,8 +27,7 @@ xpaths_vid = {
     "more_option": "//*[text()='More options']",
     "share_to_groups": "//span[text()='Share to a group']",
     "search": "//input[@aria-label='Search for groups']",
-    "share": "//div[@aria-label='Share']",
-    "Cross_btn": "//div[@aria-label='Share to a group']/div[2]/div"
+    "share": "//div[@aria-label='Post']"
 }
 
 if user == 0:
@@ -62,9 +60,10 @@ if user == 0:
                 if x == "search":
                     time.sleep(2)
                     search = driver.find_element_by_xpath(xpaths_vid[x]).send_keys(g.strip())
+                    grp_click = driver.find_element_by_xpath("//*[@class='b20td4e0 muag1w35']/div[1]").click()
 
                 else:
-                    time.sleep(2)
+                    time.sleep(4)
                     press = driver.find_element_by_xpath(xpaths_vid[x]).click()
     except Exception as error:
         print(error)
@@ -94,10 +93,11 @@ elif user == 1:
             for x in xpaths_pic.keys():
 
                 if x == "search":
-                    time.sleep(3)
+                    time.sleep(2)
                     search = driver.find_element_by_xpath(xpaths_pic[x]).send_keys(i.strip())
+                    grp_click = driver.find_element_by_xpath("//*[@class='b20td4e0 muag1w35']/div[1]").click()
                 else:
-                    time.sleep(3)
+                    time.sleep(4)
                     press = driver.find_element_by_xpath(xpaths_pic[x]).click()
     except Exception as error:
         notification.notify(
