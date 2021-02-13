@@ -66,6 +66,11 @@ if user == 0:
                     time.sleep(4)
                     press = driver.find_element_by_xpath(xpaths_vid[x]).click()
     except Exception as error:
+        notification.notify(
+            title="I am Sry, ERROR occurred -->",
+            message="There was an unexpected error so execution of program stopped.",
+            timeout=10
+        )
         print(error)
 
 elif user == 1:
