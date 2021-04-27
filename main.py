@@ -15,7 +15,7 @@ opn = open(filename, 'r', encoding="utf-8").readlines()
 
 xpaths_pic = {
 
-    "share_btn": "//div[@class='ozuftl9m tvfksri0 olo4ujb6 jmbispl3']/div/div[3]/div",
+    "share_btn": "//div[@aria-label='Send this to friends or post it on your Timeline.']",
     "groups": "//div[@class='pybr56ya f10w8fjw']/div[5]",
     "search": "//input[@aria-label='Search for groups']",
     "share": "//div[@aria-label='Post']"
