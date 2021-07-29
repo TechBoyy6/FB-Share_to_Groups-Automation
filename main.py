@@ -1,117 +1,113 @@
 from selenium import webdriver
-from plyer import notification
 import time
-from selenium.webdriver.common.action_chains import ActionChains
 
-user_email = input("Enter your facebook Login ID --> ")
-user_pass = input("Enter your facebook Password --> ")
-post_link = input("Paste your post link--> ")
-filename = input("Type the name of the file with the extension--> ")    #make sure the file is in same folder
-user = int(input("If your post is video press 0 and if photo press 1--> "))
 
 driver = webdriver.Firefox(executable_path="geckodriver")       #path for driver
-driver.get(post_link)
-opn = open(filename, 'r', encoding="utf-8").readlines()
+
 
 xpaths_pic = {
 
     "share_btn": "//div[@aria-label='Send this to friends or post it on your Timeline.']",
     "groups": "//div[@class='pybr56ya f10w8fjw']/div[5]",
     "search": "//input[@aria-label='Search for groups']",
-    "share": "//div[@aria-label='Post']"
+    "share": "//div[@aria-label='Post']",
 }
 
 xpaths_vid = {
 
-    "share_btn": "//div[@class='s1tcr66n']/div[2]/div/div",
+    "share_btn": "//div[@aria-label='Send this to friends or post it on your Timeline.']",
     "more_option": "//*[text()='More options']",
     "share_to_groups": "//span[text()='Share to a group']",
     "search": "//input[@aria-label='Search for groups']",
     "share": "//div[@aria-label='Post']"
 }
 
-if user == 0:
-    time.sleep(4)
-    log_email = driver.find_element_by_id('email').send_keys(user_email)
-    log_pass = driver.find_element_by_id('pass').send_keys(user_pass)
-    login = driver.find_element_by_id('loginbutton').click()
-    notification.notify(
-        title="Press Enter to confirm and start -->",
-        message="If the login is successfully done, press enter in terminal to proceed",
-        timeout=10
-    )
-    input("-->")
+
+
+def SignIn(id, password, type):
+    driver.find_element_by_name('email').send_keys(id)
+    driver.find_element_by_name('pass').send_keys(password)
+    if (type == 0):
+        driver.find_element_by_id('loginbutton').click()
+    else:
+        driver.find_element_by_xpath("//div[@aria-label='Accessible login button']").click()
+
+
+def ChangeAcc(profile):
+    driver.find_element_by_xpath("//button[@aria-label='Voice Selector']").click()
+    time.sleep(2)
+    driver.find_element_by_xpath("//div[@role='menuitemradio']/div[2]/div/div/span[text()='{}']".format(profile)).click()
+
+
+def Video(file):
+
+    file_content = open(file, 'r', encoding="utf-8").readlines()
+
     time.sleep(2)
 
     try:
-        enlarge = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div/div[1]/div/div/div/div[2]/div[2]/div/div/div/div[2]/div/div[4]").click()
-        time.sleep(3)
-        element = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div[1]/div[1]/div[4]/div/div/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div/div/div/div/div[2]/div/div[3]")
-        hover = ActionChains(driver).move_to_element(element).perform()
-        pause = driver.find_element_by_xpath(
-            "/html/body/div[1]/div/div[1]/div[1]/div[4]/div/div/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div/div/div/div/div[2]/div/div[2]/div[2]/span/span/span/div").click()
-
-        for g in opn:
+        
+        for grp in file_content:
 
             for x in xpaths_vid.keys():
 
                 if x == "search":
-                    time.sleep(2)
-                    search = driver.find_element_by_xpath(xpaths_vid[x]).send_keys(g.strip())
-                    grp_click = driver.find_element_by_xpath("//*[@class='b20td4e0 muag1w35']/div[1]").click()
+                    time.sleep(5)
+                    driver.find_element_by_xpath(xpaths_vid[x]).send_keys(grp.strip())
+                    time.sleep(3)
+                    driver.find_element_by_xpath("//*[@class='b20td4e0 muag1w35']/div[1]").click()
 
                 else:
-                    time.sleep(4)
-                    press = driver.find_element_by_xpath(xpaths_vid[x]).click()
+                    time.sleep(8)
+                    driver.find_element_by_xpath(xpaths_vid[x]).click()
+
     except Exception as error:
-        notification.notify(
-            title="I am Sry, ERROR occurred -->",
-            message="There was an unexpected error so execution of program stopped.",
-            timeout=10
-        )
         print(error)
 
-elif user == 1:
+
+
+def Photo(file):
+
+    file_content = open(file, 'r', encoding="utf-8").readlines()
     time.sleep(4)
-    log_email = driver.find_element_by_name('email').send_keys(user_email)
-    log_pass = driver.find_element_by_name('pass').send_keys(user_pass)
-    login = driver.find_element_by_xpath(
-        '/html/body/div[1]/div/div[1]/div/div[2]/div[2]/div[2]/div/form/div/div[3]/div').click()
-    notification.notify(
-        title="Press Enter to confirm and start -->",
-        message="If the login is successfully done, press enter in terminal to proceed",
-        timeout=10
-    )
-    input("-->")
-
-    # This code below can be used to change profile if you have multiple accounts.
-
-    # ch1 = driver.find_element_by_xpath("//button[@aria-label='Voice Selector']").click()
-    # time.sleep(2)
-    # ch2 = driver.find_element_by_xpath("//div[@role='menu']/div/div/div/div[3]/div").click()
-
+    
     try:
-        for i in opn:
+        for grp in file_content:
 
             for x in xpaths_pic.keys():
 
                 if x == "search":
-                    time.sleep(2)
-                    search = driver.find_element_by_xpath(xpaths_pic[x]).send_keys(i.strip())
-                    grp_click = driver.find_element_by_xpath("//*[@class='b20td4e0 muag1w35']/div[1]").click()
+                    time.sleep(3)
+                    driver.find_element_by_xpath(xpaths_pic[x]).send_keys(grp.strip())
+                    time.sleep(3)
+                    driver.find_element_by_xpath("//*[@class='b20td4e0 muag1w35']/div[1]").click()
                 else:
-                    time.sleep(4)
-                    press = driver.find_element_by_xpath(xpaths_pic[x]).click()
+                    time.sleep(6)
+                    driver.find_element_by_xpath(xpaths_pic[x]).click()
+
     except Exception as error:
-        notification.notify(
-            title="I am Sry, ERROR occurred -->",
-            message="There was an unexpected error so execution of program stopped.",
-            timeout=10
-        )
         print(error)
 
-else:
-    print("It seems like you don't follow instructions so 'BYE'")
-    exit(0)
+
+
+def main(username, password, post_link, file, acc_switch,post_type):
+
+    driver.get(post_link)
+    time.sleep(5)
+    SignIn(username, password, post_type)
+    time.sleep(10)
+
+    if (post_type == 0):
+
+        Video(file)
+
+    else:
+
+        if(acc_switch != ""):
+            ChangeAcc(acc_switch)
+        
+        Photo(file)
+
+    
+
+# main('Your Username', 'Your Password', 'Post Link', 'Filename.txt', 'Profile Name', 0 or 1)
