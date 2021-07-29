@@ -10,10 +10,7 @@ With the help of this repo you can automate the process of sharing your post to 
 ```
 pip install selenium
 ```
-2.Plyer
-```
-pip install plyer
-```
+
 Also Download the Chrome Drivers from the link according to your chrome version :- [click here](https://chromedriver.chromium.org/downloads)
 
 Note-> Firefox Driver is already provided
