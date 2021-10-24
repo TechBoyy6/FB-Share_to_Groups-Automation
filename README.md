@@ -17,9 +17,12 @@ Note-> Firefox Driver is already provided
 
 ## How to Use
 
-For Video Tutorial [Click Here](https://drive.google.com/file/d/1RX5r2H8eGlxEzU2F_NycTKzJJ4kz-3dn/view?usp=sharing), View in full screen for better quality.
+1. Clone the project.
+2. Uncomment the line 113 in the main.py file.
+3. Replace line 113 with all the required details.
+4. Save the the main.py file and run it.
 
-NOTE --> This program works perfectly fine in the backgroung on Linux, but windows doesn't allow to do so.
+For Video Tutorial [Click Here](https://drive.google.com/file/d/1RX5r2H8eGlxEzU2F_NycTKzJJ4kz-3dn/view?usp=sharing), View in full screen for better quality.
 
 
 ## Social
