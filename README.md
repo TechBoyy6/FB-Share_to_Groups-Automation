@@ -22,8 +22,6 @@ Note-> Firefox Driver is already provided
 3. Replace line 113 with all the required details.
 4. Save the the main.py file and run it.
 
-For Video Tutorial [Click Here](https://drive.google.com/file/d/1RX5r2H8eGlxEzU2F_NycTKzJJ4kz-3dn/view?usp=sharing), View in full screen for better quality.
-
 
 ## Social
 
