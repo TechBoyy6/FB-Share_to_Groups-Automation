@@ -24,7 +24,7 @@ Note-> Firefox Driver is already provided
 
 
 ## Note
-If you use chrome, make sure you download the correct driver and add it in the same folder.
+If you use chrome, make sure you download the correct driver and add it in the same folder.<br>
 Also change the 'Firefox' to 'Chrome' and geckodriver to your chrome driver filename in the line 5.
 
 ## Social
