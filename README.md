@@ -23,6 +23,10 @@ Note-> Firefox Driver is already provided
 4. Save the the main.py file and run it.
 
 
+## Note
+If you use chrome, make sure you download the correct driver and add it in the same folder.
+Also change the 'Firefox' to 'Chrome' and geckodriver to your chrome driver filename in the line 5.
+
 ## Social
 
 <a href="https://github.com/TechBoyy6">
